@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket + NATS Monitor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: black">WebSocket + NATS Real-Time Monitor</h1>
+        <p style="color: black; font-weight: bold">FastAPI Parser - Live Product Updates</p>
+    </div>
+
+    <div class="controls">
+        <button class="btn-primary" onclick="connect()">Connect</button>
+        <button class="btn-danger" onclick="disconnect()">Disconnect</button>
+        <button class="btn-info" onclick="ping()">Ping</button>
+        <button class="btn-success" onclick="triggerParser()">Run Parser</button>
+        <button class="btn-info" onclick="clearMessages()">Clear All</button>
+        <button class="btn-info" onclick="resetClientId()">Reset ID</button>
+        <span id="status" class="status-disconnected">Disconnected</span>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-value" id="totalMessages">0</div>
+            <div class="stat-label">Total Messages</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="wsCount">0</div>
+            <div class="stat-label">WebSocket</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="natsCount">0</div>
+            <div class="stat-label">NATS Events</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="createdCount">0</div>
+            <div class="stat-label">Created</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="updatedCount">0</div>
+            <div class="stat-label">Updated</div>
+        </div>
+    </div>
+
+    <div id="parserProgress" class="parser-progress" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="progress-text">Parsing in progress...</div>
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <h2>📨 All Messages</h2>
+            <div id="allMessages" class="messages-container"></div>
+        </div>
+
+        <div class="panel">
+            <h2>🌐 NATS Events Only</h2>
+            <div id="natsMessages" class="messages-container"></div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
