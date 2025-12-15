@@ -50,7 +50,7 @@
 ### 1️⃣ Клонирование репозитория:
 
 ```bash
-git clone [https://github.com/LikeOcean/myParser.git](https://github.com/like-Ocean/myParser)
+git clone https://github.com/like-Ocean/myParser
 cd myParser
 ```
 
